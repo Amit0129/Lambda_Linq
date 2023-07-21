@@ -14,7 +14,7 @@
                 new ProductReview() { ProductID = 4, UserID = 3, Rating = 5, Review = "VeryGood", IsLike = true },
                 new ProductReview() { ProductID = 5, UserID = 1, Rating = 2, Review = "VeryBad", IsLike = true },
                 new ProductReview() { ProductID = 6, UserID = 2, Rating = 1, Review = "VeryBad", IsLike = true },
-                new ProductReview() { ProductID = 7, UserID = 3, Rating = 5, Review = "Average", IsLike = true },
+                new ProductReview() { ProductID = 7, UserID = 3, Rating = 5, Review = "VeryGood", IsLike = true },
                 new ProductReview() { ProductID = 8, UserID = 4, Rating = 4, Review = "Good", IsLike = true },
                 new ProductReview() { ProductID = 9, UserID = 5, Rating = 2, Review = "Average", IsLike = true },
                 new ProductReview() { ProductID = 10, UserID = 6, Rating = 4, Review = "Good", IsLike = true },
