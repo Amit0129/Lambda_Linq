@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,20 @@ namespace Lambda_LinQ_Demo
             }
             Console.WriteLine("Using LinQ");
             foreach (var prod in record)
+            {
+                Console.WriteLine(prod.ProductID + " " + prod.UserID + " " + prod.Rating + " " + prod.Review + " " + prod.IsLike);
+            }
+        }
+        public void Productreview(List<ProductReview> product)
+        {
+            var result = product.Where(x => x.Rating > 3 && (x.ProductID == 1 || x.ProductID == 4 || x.ProductID == 9));
+            Console.WriteLine("Using Lambda");
+            Display(result);
+           
+        }
+        public void Display(IEnumerable<ProductReview> result)
+        {
+            foreach (var prod in result)
             {
                 Console.WriteLine(prod.ProductID + " " + prod.UserID + " " + prod.Rating + " " + prod.Review + " " + prod.IsLike);
             }
