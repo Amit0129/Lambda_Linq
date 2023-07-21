@@ -27,15 +27,18 @@ namespace Lambda_LinQ_Demo
         public void Productreview(List<ProductReview> product)
         {
             var result = product.Where(x => x.Rating > 3 && (x.ProductID == 1 || x.ProductID == 4 || x.ProductID == 9));
+            var record = from prod in product where (prod.ProductID == 1 || prod.ProductID == 4 || prod.ProductID == 9) && prod.Rating>3 select prod;
             Console.WriteLine("Using Lambda");
             Display(result);
+            Console.WriteLine("Using LinQ");
+            Display(record);
            
         }
         public void Display(IEnumerable<ProductReview> result)
         {
             foreach (var prod in result)
             {
-                Console.WriteLine(prod.ProductID + " " + prod.UserID + " " + prod.Rating + " " + prod.Review + " " + prod.IsLike);
+                Console.WriteLine("Product Id"+prod.ProductID + " " +"UserId : "+prod.UserID + " " +"Raring : "+ prod.Rating + " " +"Review : "+prod.Review + " " +"IsLike : "+ prod.IsLike);
             }
         }
     }
