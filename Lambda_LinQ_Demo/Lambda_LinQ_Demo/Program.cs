@@ -29,13 +29,14 @@
                 new ProductReview() { ProductID = 19, UserID = 5, Rating = 3, Review = "Average", IsLike = true },
                 new ProductReview() { ProductID = 20, UserID = 6, Rating = 1, Review = "VeryBad", IsLike = false },
                 new ProductReview() { ProductID = 21, UserID = 9, Rating = 4, Review = "Good", IsLike = true },
-                new ProductReview() { ProductID = 22, UserID = 4, Rating = 1, Review = "VeryBad", IsLike = false },
+                new ProductReview() { ProductID = 23, UserID = 4, Rating = 1, Review = "VeryBad", IsLike = false },
                 new ProductReview() { ProductID = 23, UserID = 3, Rating = 5, Review = "VeryGood", IsLike = true },
-                new ProductReview() { ProductID = 24, UserID = 2, Rating = 4, Review = "Good", IsLike = true },
-                new ProductReview() { ProductID = 25, UserID = 1, Rating = 4, Review = "Good", IsLike = true }
+                new ProductReview() { ProductID = 23, UserID = 2, Rating = 4, Review = "Good", IsLike = true },
+                new ProductReview() { ProductID = 23, UserID = 1, Rating = 4, Review = "Good", IsLike = true }
             };
             Console.WriteLine("1.Retrieve Top Three record");
             Console.WriteLine("2. Retrine top reating product with Product Id 1,4,9");
+            Console.WriteLine("3. For product Count");
             int option = Convert.ToInt32(Console.ReadLine());
             switch (option)
             {
@@ -44,6 +45,9 @@
                     break;
                 case 2:
                     managment.Productreview(products);
+                    break;
+                case 3:
+                    managment.CountProduct(products); 
                     break;
                 default:
                     break;

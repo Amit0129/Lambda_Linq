@@ -34,6 +34,21 @@ namespace Lambda_LinQ_Demo
             Display(record);
            
         }
+        public void CountProduct(List<ProductReview> product)
+        {
+            Console.WriteLine("Using Lamda");
+            var result = product.GroupBy(x => x.ProductID);
+            foreach (var pro in result)
+            {
+                Console.WriteLine("Product Id :"+pro.Key+" No Of Time :"+pro.Count());
+            }
+            Console.WriteLine("Using LinQ");
+            var record = product.GroupBy(x=>x.ProductID).Select(x => new {ProductID = x.Key, Count = x.Count()});
+            foreach (var pro in record)
+            {
+                Console.WriteLine($"Product Id = {pro.ProductID} Count = {pro.Count}");
+            }
+        }
         public void Display(IEnumerable<ProductReview> result)
         {
             foreach (var prod in result)
