@@ -6,6 +6,7 @@
         {
             Console.WriteLine("Hello, World!");
             Managment managment = new Managment();
+            bool check = true;
             List<ProductReview> products = new List<ProductReview>()
             {
                 new ProductReview() { ProductID = 1, UserID = 1, Rating = 5, Review = "VeryGood", IsLike = true },
@@ -34,31 +35,42 @@
                 new ProductReview() { ProductID = 23, UserID = 2, Rating = 4, Review = "Good", IsLike = true },
                 new ProductReview() { ProductID = 23, UserID = 1, Rating = 4, Review = "Good", IsLike = true }
             };
-            Console.WriteLine("1.Retrieve Top Three record");
-            Console.WriteLine("2. Retrine top reating product with Product Id 1,4,9");
-            Console.WriteLine("3. For product Count");
-            Console.WriteLine("4. For product And its review");
-            Console.WriteLine("5. Skip top 5 record from list and show it");
-            int option = Convert.ToInt32(Console.ReadLine());
-            switch (option)
+            while (check)
             {
-                case 1:
-                    managment.TopRecord(products);
-                    break;
-                case 2:
-                    managment.Productreview(products);
-                    break;
-                case 3:
-                    managment.CountProduct(products); 
-                    break;
-                case 4:
-                    managment.ProductIdReview(products);
-                    break;
-                case 5:
-                    managment.ProductReviewSkipTop5(products); 
-                    break;
-                default:
-                    break;
+                Console.WriteLine("1.Retrieve Top Three record");
+                Console.WriteLine("2. Retrine top reating product with Product Id 1,4,9");
+                Console.WriteLine("3. For product Count");
+                Console.WriteLine("4. For product And its review");
+                Console.WriteLine("5. Skip top 5 record from list and show it");
+                Console.WriteLine("6. Retrive only product And its review");
+                Console.WriteLine("0. Exit");
+                int option = Convert.ToInt32(Console.ReadLine());
+                switch (option)
+                {
+                    case 0:
+                        check = false;
+                        break;
+                    case 1:
+                        managment.TopRecord(products);
+                        break;
+                    case 2:
+                        managment.Productreview(products);
+                        break;
+                    case 3:
+                        managment.CountProduct(products);
+                        break;
+                    case 4:
+                        managment.ProductIdReview(products);
+                        break;
+                    case 5:
+                        managment.ProductReviewSkipTop5(products);
+                        break;
+                    case 6:
+                        managment.RetriveOnlyProductIdReview(products);
+                        break;
+                    default:
+                        break;
+                }
             }
         }
     }
