@@ -38,6 +38,7 @@
             Console.WriteLine("2. Retrine top reating product with Product Id 1,4,9");
             Console.WriteLine("3. For product Count");
             Console.WriteLine("4. For product And its review");
+            Console.WriteLine("5. Skip top 5 record from list and show it");
             int option = Convert.ToInt32(Console.ReadLine());
             switch (option)
             {
@@ -52,6 +53,9 @@
                     break;
                 case 4:
                     managment.ProductIdReview(products);
+                    break;
+                case 5:
+                    managment.ProductReviewSkipTop5(products); 
                     break;
                 default:
                     break;

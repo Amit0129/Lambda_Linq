@@ -58,15 +58,21 @@ namespace Lambda_LinQ_Demo
                 Console.WriteLine(item.ProductID+" "+item.Review);
             }
             Console.WriteLine("Using LinQ");
-            var records = from record in product select new {record.ProductID, record.Review};
+            var records = from record in product select new {record.ProductID, record.Review };
             foreach (var prod in records)
             {
                 Console.WriteLine($"Product Id : {prod.ProductID}  ; Product Review : {prod.Review}");
             }
         }
-      
+        public void ProductReviewSkipTop5(List<ProductReview> product)
+        {
+            var result = product.OrderByDescending(x => x.Rating).Skip(5);
+            Display(result);
+            Console.WriteLine("Using LinQ");
+            var records = (from prod in product select prod).Skip(5);
+            Display(records);
 
-
+        }
         public void Display(IEnumerable<ProductReview> result)
         {
             foreach (var prod in result)
