@@ -49,11 +49,29 @@ namespace Lambda_LinQ_Demo
                 Console.WriteLine($"Product Id = {pro.ProductID} Count = {pro.Count}");
             }
         }
+        public void ProductIdReview(List<ProductReview> product)
+        {
+            Console.WriteLine("Using Lamda");
+            var result = product.Select(x => new { x.ProductID, x.Review });
+            foreach (var item in result)
+            {
+                Console.WriteLine(item.ProductID+" "+item.Review);
+            }
+            Console.WriteLine("Using LinQ");
+            var records = from record in product select new {record.ProductID, record.Review};
+            foreach (var prod in records)
+            {
+                Console.WriteLine($"Product Id : {prod.ProductID}  ; Product Review : {prod.Review}");
+            }
+        }
+      
+
+
         public void Display(IEnumerable<ProductReview> result)
         {
             foreach (var prod in result)
             {
-                Console.WriteLine("Product Id"+prod.ProductID + " " +"UserId : "+prod.UserID + " " +"Raring : "+ prod.Rating + " " +"Review : "+prod.Review + " " +"IsLike : "+ prod.IsLike);
+                Console.WriteLine($"Product Id : {prod.ProductID} ; UserId : {prod.UserID} ; Rating : {prod.Rating} ; Review : {prod.Review} ; IsLike : {prod.IsLike}");
             }
         }
     }
